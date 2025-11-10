@@ -11,8 +11,8 @@ using komputahsoftware.Data.Context;
 namespace komputahsoftware.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251110134519_initialCreate")]
-    partial class initialCreate
+    [Migration("20251110140103_Seed")]
+    partial class Seed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,15 @@ namespace komputahsoftware.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("tb_Usuarios", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            NomeUsuario = "gustavo",
+                            Role = "User",
+                            Senha = "$2a$11$zyQI6F.RRBGQhJHSJ1bIE.ILrVObp1WT9GhGCKnTJ0ZTAVfwK7ZEe"
+                        });
                 });
 #pragma warning restore 612, 618
         }

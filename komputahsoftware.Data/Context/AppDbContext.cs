@@ -20,6 +20,17 @@ namespace komputahsoftware.Data.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Usuario>().HasData(
+            new Usuario
+            {
+                   Id = 1,
+                   NomeUsuario = "gustavo",
+                   Senha = BCrypt.Net.BCrypt.HashPassword("123456"),
+                   Role = "User"
+              }
+            );
+
+
             modelBuilder.ApplyConfiguration(new UsuarioMap());
         }
     }

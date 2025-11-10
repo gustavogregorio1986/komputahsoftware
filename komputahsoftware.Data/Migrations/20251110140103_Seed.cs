@@ -4,7 +4,7 @@
 
 namespace komputahsoftware.Data.Migrations
 {
-    public partial class initialCreate : Migration
+    public partial class Seed : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,6 +22,11 @@ namespace komputahsoftware.Data.Migrations
                 {
                     table.PrimaryKey("PK_tb_Usuarios", x => x.Id);
                 });
+
+            migrationBuilder.InsertData(
+                table: "tb_Usuarios",
+                columns: new[] { "Id", "NomeUsuario", "Role", "Senha" },
+                values: new object[] { 1, "gustavo", "User", "$2a$11$zyQI6F.RRBGQhJHSJ1bIE.ILrVObp1WT9GhGCKnTJ0ZTAVfwK7ZEe" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
